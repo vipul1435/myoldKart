@@ -9,7 +9,7 @@ export default function Footer() {
     <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
 
       <Link href={'/'} className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-        <Image src="/logo.png" alt="" height={40} width={200}/>
+        <Image src="/dark_logo.png" alt="" height={40} width={200}/>
       </Link>
       <p className="mt-2 px-5 text-sm text-gray-500">Feel free to shop</p>
     </div>

@@ -15,7 +15,7 @@ export default function Poster() {
           </div>
         </div>
       </div>
-      <Image src={'/poster.png'} width={1500} alt="poster" height={325} style={{'border-radius': '30px','padding':"10px"}} />
+      <Image src={'/poster.png'} width={1500} alt="poster" height={325} style={{'borderRadius': '30px','padding':"10px"}} />
       <script src="https://cdn.tailwindcss.com"></script>
       <script src="https://use.fontawesome.com/03f8a0ebd4.js"></script>
     </div>
