@@ -22,7 +22,7 @@ export default function Checkdelivery() {
         <div className='font-bold text-lg my-1'>Check delivery availability</div>
         <div className='flax flex-col space-x-3  text-md '>
             <input className='border-2 px-2 rounded-lg border-violet-600' type="number" onChange={onchangePin}/>
-            <button className='items-center ml-7 my-2 text-white bg-indigo-500 border-0 py-1 px-4 focus:outline-none hover:bg-indigo-600 rounded' onClick={checkAvailability}>Check</button>
+            <button className='items-center ml-7 my-2 text-white bg-violet-500 border-0 py-1 px-4 focus:outline-none hover:bg-violet-600 rounded' onClick={checkAvailability}>Check</button>
         </div>
         {(available && available!=null) && <div className='text-sm italic text-green-600 '>YEH! We are delivering to pincode: {checked_pin}</div>}
         {(!available && available!=null) && <div className='text-sm italic text-red-600'>SORRY! We are not delivering to pincode: {checked_pin}</div>}
