@@ -8,11 +8,7 @@ export default function Login() {
   const [is_login, setis_login] = useState(true)
   const router = useRouter()
   const toggle = () => {
-    if (is_login) {
-      setis_login(false);
-    } else {
-      setis_login(true);
-    }
+    setis_login(!is_login)
   }
 
   const [credential, setcredential] = useState({});
