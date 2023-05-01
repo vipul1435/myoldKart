@@ -8,5 +8,5 @@ const UserSchemca = new Schema({
     image: { type: String },
     mobile: { type: Number }
 }, { timestamps: true })
-
+mongoose.models={};
 export default mongoose.model("User", UserSchemca)

@@ -1,11 +1,11 @@
 import Product from "@/modals/Product";
 import connectDb from "@/middleware/mongoose";
 
-const updateproducts = async (req, res) => {
+const deleteproducts = async (req, res) => {
     try {
         if (req.method == 'POST') {
             for (let i = 0; i < req.body.length; i++) {
-                await Product.findByIdAndUpdate(req.body[i]._id,req.body[i]);
+                await Product.findByIdAndDelete(req.body[i]._id);
             }
             res.status(200).json({ success: "Item has been added" })
         } else {
@@ -16,4 +16,4 @@ const updateproducts = async (req, res) => {
     }
 }
 
-export default connectDb(updateproducts);
+export default connectDb(deleteproducts);

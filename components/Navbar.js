@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { AiOutlineShoppingCart, AiFillCloseCircle,AiFillMinusCircle,AiFillPlusCircle } from 'react-icons/ai';
 import {HiShoppingCart} from 'react-icons/hi'
+import {FaUserCircle} from 'react-icons/fa'
 const Navbar = (props) => {
     const {Cart,addtoCart,removefromCart,clearCart,subTotal}=props;
     const togggleCart = () =>{
@@ -30,6 +31,7 @@ const Navbar = (props) => {
             </div>
             <div className='cart flex justify-center min-[300px]:absolute right-2 top-4 mx-5'>
                 <AiOutlineShoppingCart className='text-xl md:text-3xl' onClick={togggleCart}/>
+                <Link href={'/login'}><FaUserCircle className='text-xl ml-5 md:text-3xl'/></Link>
             </div>
             <div ref={ref} className="sidebar z-10 transform hidden transition-transform ml-2 p-2 mb-3 fixed  sm:w-1/2 lg:w-1/3 top-1 h-[98vh] right-1 bg-gradient-to-br from-[#F6FA41] to-[#F048C6] shadow-lg shadow-cyan-500/50   rounded-xl  border-2 border-amber-600 border-solid">
                 <h2 className='text-center font-bold text-2xl my-2 text-black'>Shopping Cart</h2>
