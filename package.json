@@ -9,11 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.1.0",
+    "net": "^1.0.2",
     "next": "13.3.1",
+    "razorpay": "^2.8.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.8.0"
+    "react-icons": "^4.8.0",
+    "react-jwt": "^1.1.8",
+    "react-toastify": "^9.1.2",
+    "react-top-loading-bar": "^2.3.1",
+    "tls": "^0.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",

@@ -8,7 +8,7 @@ export default function Checkdelivery() {
         setpin(e.target.value);
     }
     const checkAvailability = async() =>{
-        const pins = await fetch('http://localhost:3000/api/pincode');
+        const pins = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/pincode`);
         const pinval= await pins.json();
         if(pinval.includes(parseInt(pin))){
             setavailable(true);

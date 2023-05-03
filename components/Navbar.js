@@ -6,9 +6,11 @@ import { HiShoppingCart } from 'react-icons/hi'
 import { FaUserCircle } from 'react-icons/fa'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/router';
 
 
 const Navbar = (props) => {
+    const router = useRouter()
     const [profileData, setprofileData] = useState(false)
     const { Cart, removefromCart, clearCart, subTotal, user, setkey, setuser } = props;
     const ref = useRef();
@@ -37,6 +39,7 @@ const Navbar = (props) => {
             localStorage.removeItem('token')
             setkey(Math.random())
             setuser({ value: null })
+            router.push('/')
         }, [1000]);
     }
 
@@ -69,8 +72,8 @@ const Navbar = (props) => {
             </div>
             {profileData && <div onMouseLeave={toggleProfile} className='absolute top-12 right-10 bg-purple-300 rounded-md py-4 pl-3 pr-7 text-md font-semibold font-mono'>
                 <ul>
-                    <li className='rounded-md cursor-pointer px-2 hover:bg-purple-400 hover:text-white'>My Account</li>
-                    <li className='rounded-md cursor-pointer px-2 hover:bg-purple-400 hover:text-white'>Orders</li>
+                    <Link href={'/profile'}><li className='rounded-md cursor-pointer px-2 hover:bg-purple-400 hover:text-white'>My Account</li></Link>
+                    <Link href={'/Orders'}><li className='rounded-md cursor-pointer px-2 hover:bg-purple-400 hover:text-white'>Orders</li></Link>
                     <li className='rounded-md cursor-pointer px-2 hover:bg-purple-400 hover:text-white' onClick={logout}>Log out</li>
                 </ul>
             </div>}

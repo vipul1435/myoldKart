@@ -21,7 +21,7 @@ export default function Login() {
     onChange;
     if (is_login) {
       let body = { email: credential.email, password: credential.password };
-      let res = await fetch('http://localhost:3000/api/login', {
+      let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/login`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -58,7 +58,7 @@ export default function Login() {
       }
     } else {
       let body = { name: credential.name, email: credential.email, password: credential.password };
-      let res = await fetch('http://localhost:3000/api/signup', {
+      let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/signup`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'

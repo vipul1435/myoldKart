@@ -3,7 +3,6 @@ import Navbar from '@/components/Navbar'
 import '@/styles/globals.css'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import LoadingBar from 'react-top-loading-bar'
 
@@ -45,7 +44,8 @@ export default function App({ Component, pageProps }) {
   }, [router.query])
 
   const buyNow = (itemCode, qty, price, name, size, varient) => {
-    let newCart = { itemCode: { itemCode, qty: 1, price, name, size, varient } };
+    let newCart = {};
+    newCart[itemCode] = { itemCode, qty: 1, price, name, size, varient }
     setCart(newCart)
     saveCart(newCart)
     router.push('/checkout')
@@ -65,16 +65,20 @@ export default function App({ Component, pageProps }) {
     saveCart(myCart);
   }
   const removefromCart = (itemCode, qty, flag) => {
+    console.log("i am calling for add and remove")
+    console.log(itemCode,qty,flag);
+    console.log(Cart)
     let myCart = Cart;
     if (itemCode in Cart) {
+      console.log("yes present")
       if (flag) {
         myCart[itemCode].qty = Cart[itemCode].qty + qty;
       } else {
         myCart[itemCode].qty = Cart[itemCode].qty - qty;
       }
-    }
-    if (myCart[itemCode]["qty"] <= 0) {
-      delete myCart[itemCode];
+      if (myCart[itemCode].qty <= 0) {
+        delete myCart[itemCode];
+      }
     }
     setCart(myCart);
     saveCart(myCart);

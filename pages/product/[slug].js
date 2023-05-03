@@ -99,11 +99,10 @@ const Post = (props) => {
 export default Post
 
 export async function getServerSideProps(context) {
-  console.log("i m call");
   if (!mongoose.connections[0].readyState) {
     await mongoose.connect(process.env.MONGO_URI)
   }
-  let tshirt = await Product.findOne({ slug: context.query.slug });
+  let tshirt = await Product.findOne({slug: context.query.slug });
   return {
     props: { tshirt: JSON.parse(JSON.stringify(tshirt)) }
   }
