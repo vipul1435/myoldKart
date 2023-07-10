@@ -1,8 +1,7 @@
-import connectDb from "@/middleware/mongoose";
 import User from "@/modals/User";
 var CryptoJS = require("crypto-js");
 var jwt = require('jsonwebtoken');
-
+import connectDb from "@/middleware/mongoose";
 const logIn = async (req, res) => {
     try {
         if (req.method == 'POST') {
@@ -12,7 +11,7 @@ const logIn = async (req, res) => {
             if (user) {
                 if (user.email === req.body.email && req.body.password === originalText) {
                     var token = jwt.sign({name:user.name,email:user.email}, 'mysecretkey123');
-                    res.status(200).json({success:true,token})
+                    res.status(200).json({success:true,token,email:user.email})
                 } else {
                     res.status(500).json({success: false,error:"Invalid Credentials"})
                 }
@@ -26,5 +25,4 @@ const logIn = async (req, res) => {
         res.status(500).json({success: false,error:"Internal Server error"})
     }
 }
-
 export default connectDb(logIn);

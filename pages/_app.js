@@ -3,7 +3,6 @@ import Navbar from '@/components/Navbar'
 import '@/styles/globals.css'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import 'react-toastify/dist/ReactToastify.css';
 import LoadingBar from 'react-top-loading-bar'
 
 export default function App({ Component, pageProps }) {
@@ -24,7 +23,7 @@ export default function App({ Component, pageProps }) {
   }
   useEffect(() => {
     return () => {
-      router.events.on('routeChangeComplete',()=>{
+      router.events.on('routeChangeComplete', () => {
         setProgress(100)
       })
       try {
@@ -65,12 +64,8 @@ export default function App({ Component, pageProps }) {
     saveCart(myCart);
   }
   const removefromCart = (itemCode, qty, flag) => {
-    console.log("i am calling for add and remove")
-    console.log(itemCode,qty,flag);
-    console.log(Cart)
     let myCart = Cart;
     if (itemCode in Cart) {
-      console.log("yes present")
       if (flag) {
         myCart[itemCode].qty = Cart[itemCode].qty + qty;
       } else {

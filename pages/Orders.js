@@ -1,6 +1,27 @@
-import React from 'react'
-
+import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
+var jwt = require('jsonwebtoken');
 export default function Orders() {
+    const router = useRouter()
+    const [orders, setorders] = useState([])
+    useEffect(() => {
+        const fetchorders = async () => {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/order/fetchorders`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ token: localStorage.getItem('token') })
+            })
+            const myorders =await res.json()
+            setorders(myorders.orders)
+        }
+        if (!localStorage.getItem('token')) {
+            router.push('/login')
+        } else {
+            fetchorders()
+        }
+    },[])
     return (<>
         <div className='text-center mt-10 mb-5 font-bold font-mono text-2xl'>Orders</div>
         <div className="relative mx-10 overflow-x-auto shadow-md sm:rounded-lg">
@@ -50,7 +71,7 @@ export default function Orders() {
                             White
                         </td>
                         <td className="px-6 py-4">
-                        Delivered
+                            Delivered
                         </td>
                         <td className="px-6 py-4">
                             $1999

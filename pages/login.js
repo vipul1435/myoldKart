@@ -45,7 +45,7 @@ export default function Login() {
           router.push('/')
         }, [1000]);
       } else {
-        toast.error(response.error, {
+        toast.error(response.error,{
           position: "top-left",
           autoClose: 5000,
           hideProgressBar: false,

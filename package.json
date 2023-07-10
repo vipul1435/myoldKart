@@ -9,8 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/lab": "^5.0.0-alpha.135",
+    "@mui/material": "^5.13.7",
+    "apexcharts": "^3.41.0",
     "cors": "^2.8.5",
     "crypto-js": "^4.1.1",
+    "feather-icons-react": "^0.6.2",
     "fs": "^0.0.1-security",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.1.0",
@@ -18,16 +24,23 @@
     "next": "13.3.1",
     "razorpay": "^2.8.6",
     "react": "18.2.0",
+    "react-apexcharts": "^1.4.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
     "react-jwt": "^1.1.8",
     "react-toastify": "^9.1.2",
     "react-top-loading-bar": "^2.3.1",
+    "shortid": "^2.2.16",
     "tls": "^0.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.23",
     "tailwindcss": "^3.3.1"
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   }
 }

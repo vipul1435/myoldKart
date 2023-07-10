@@ -81,7 +81,7 @@ const Post = (props) => {
             <div className="flex">
               <span className="title-font font-medium text-2xl text-gray-900">{tshirt.price}</span>
               <button className="flex items-center ml-7 text-white bg-violet-500 border-0 py-1 px-4 focus:outline-none hover:bg-violet-600 rounded" onClick={()=>{buyNow(tshirt.slug,1,tshirt.price,tshirt.title,tshirt.size,tshirt.color)}}>Buy Now</button>
-              <button className="flex items-center ml-3 text-white bg-violet-500 border-0 py-1 px-4 focus:outline-none hover:bg-violet-600 rounded" onClick={() => { addtoCart(slug, 1, 4454, "myoldCAER FUCKING YOU", "xl", "RED") }}>Add to Cart</button>
+              <button className="flex items-center ml-3 text-white bg-violet-500 border-0 py-1 px-4 focus:outline-none hover:bg-violet-600 rounded" onClick={() => { addtoCart(tshirt.slug,1, tshirt.price, tshirt.title,tshirt.size, tshirt.color) }}>Add to Cart</button>
               <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                 <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
                   <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
@@ -100,7 +100,7 @@ export default Post
 
 export async function getServerSideProps(context) {
   if (!mongoose.connections[0].readyState) {
-    await mongoose.connect(process.env.MONGO_URI)
+    await mongoose.connect()
   }
   let tshirt = await Product.findOne({slug: context.query.slug });
   return {

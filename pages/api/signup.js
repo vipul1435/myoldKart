@@ -10,7 +10,7 @@ const signUp = async (req, res) => {
             let user = new User({name,email,password:CryptoJS.AES.encrypt(password,"mysecretkey123").toString()});
             await user.save()
             var token = jwt.sign({name:name,email:email}, 'mysecretkey123');
-            res.status(200).json({success:true,token})
+            res.status(200).json({success:true,token,email:email})
         } else {
             res.status(400).json({success: false,error:"Internal Server error"})
         }
